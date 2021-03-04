@@ -16,12 +16,14 @@ public class Utilisateur {
     private String email;
     @Column(length = 80)
     private String adresse;
+    private int telephone;
 
     public Utilisateur(String nom, String prenom, String email, String adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.adresse = adresse;
+        this.telephone = telephone;
     }
 
     public Utilisateur() {
@@ -47,4 +49,6 @@ public class Utilisateur {
     public String getAdresse() {
         return adresse;
     }
+
+    public int getTelephone() { return telephone; }
 }
