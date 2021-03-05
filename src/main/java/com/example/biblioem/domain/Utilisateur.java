@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @Column(length = 25)
     private String nom;
@@ -16,7 +16,7 @@ public class Utilisateur {
     private String email;
     @Column(length = 80)
     private String adresse;
-    private int telephone;
+    private String telephone;
 
     public Utilisateur(String nom, String prenom, String email, String adresse) {
         this.nom = nom;
@@ -30,7 +30,7 @@ public class Utilisateur {
 
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -50,5 +50,5 @@ public class Utilisateur {
         return adresse;
     }
 
-    public int getTelephone() { return telephone; }
+    public String getTelephone() { return telephone; }
 }

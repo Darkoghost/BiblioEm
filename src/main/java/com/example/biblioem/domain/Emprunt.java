@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class Emprunt implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private Long id;
     private int numero;
 
     public Emprunt(int numero) {
@@ -21,7 +21,7 @@ public class Emprunt implements Serializable {
 
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
