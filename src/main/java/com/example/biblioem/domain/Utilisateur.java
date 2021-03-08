@@ -19,7 +19,7 @@ public class Utilisateur {
     private String adresse;
     private String telephone;
 
-    @OneToMany(mappedBy = "Utilisateur")
+    @OneToMany(mappedBy = "utilisateur")
     private List<Emprunt> empruntList;
 
 
