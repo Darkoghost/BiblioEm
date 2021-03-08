@@ -1,9 +1,6 @@
 package com.example.biblioem.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -11,10 +8,17 @@ public class Emprunt implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private int numero;
 
-    public Emprunt(int numero) {
-        this.numero = numero;
+    @ManyToOne
+    @JoinColumn(name = "idUser")
+    private Utilisateur utilisateur;
+
+    private Long Livre;
+
+    public Emprunt(Long id, Utilisateur utilisateur, Long Livre) {
+        this.id = id;
+        this.utilisateur = utilisateur;
+        this.Livre = Livre;
     }
 
     public Emprunt() {
@@ -25,7 +29,11 @@ public class Emprunt implements Serializable {
         return id;
     }
 
-    public int getNumero() {
-        return numero;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public Long getLivre() {
+        return Livre;
     }
 }

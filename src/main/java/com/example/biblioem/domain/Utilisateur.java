@@ -1,12 +1,13 @@
 package com.example.biblioem.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    private Long idUser;
 
     @Column(length = 25)
     private String nom;
@@ -18,20 +19,26 @@ public class Utilisateur {
     private String adresse;
     private String telephone;
 
-    public Utilisateur(String nom, String prenom, String email, String adresse) {
+    @OneToMany(mappedBy = "Utilisateur")
+    private List<Emprunt> empruntList;
+
+
+    public Utilisateur(Long idUser, String nom, String prenom, String email, String adresse, String telephone, List<Emprunt> empruntList) {
+        this.idUser = idUser;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.adresse = adresse;
         this.telephone = telephone;
+        this.empruntList = empruntList;
     }
 
     public Utilisateur() {
 
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdUser() {
+        return idUser;
     }
 
     public String getNom() {
@@ -51,4 +58,8 @@ public class Utilisateur {
     }
 
     public String getTelephone() { return telephone; }
+
+    public List<Emprunt> getEmpruntList() {
+        return empruntList;
+    }
 }
